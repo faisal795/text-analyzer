@@ -78,7 +78,7 @@ function Textform(props) {
                     <div className="col m-1 bg-warning"><p>WORDS: <span>{SPACECOUNTER}</span></p></div>
                     <div className="col m-1 bg-success"><p>SENTENCES: <span>{myText.trim().split(".").filter((myText) => myText !== "").length}</span></p></div>
                     <div className="col m-1 bg-secondary"><p>MINUTS READ: <span>{(0.03 * SPACECOUNTER).toFixed(2)}</span></p></div>
-                    <div className="col m-1 bg-dark"><p>CHARACTERS WITHOUT SPACE: <span>{myText.length - myText.split(" ").length}</span></p></div>
+                    <div className="col m-1 bg-dark"><p>CHARACTERS WITHOUT SPACE: <span>{myText.length - myText.split(" ").length + 1}</span></p></div>
                     <div className="col m-1 bg-info"><p>PARAGRAPH: <span>{myText.split(/\r?\n|\r/).filter((myText) => myText !== "").length}</span></p></div>
                 </div>
                 <div className="row">
