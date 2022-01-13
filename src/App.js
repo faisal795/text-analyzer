@@ -22,25 +22,23 @@ function App() {
     }, 1200);
   };
 
-  const Togglefun = () => {
+  const Togglefun = (color) => {
+    console.log(color);
     if (Mode === "light" && ModeText === "DarkMode") {
       setMode("dark");
       setModeText("LightMode");
       showAlert("Dark Mode has been Enabled!", "Successfully!");
+      
+      document.body.style.background = color;
     } else {
       setMode("light");
       setModeText("DarkMode");
       showAlert("Light Mode has been Enabled!", "Successfully!");
+      document.body.style.background = "#fff";
     }
   };
 
-  // const About = () => {
-  //   return <h1>Hello About</h1>
-  // }
-  // const Home = () => {
-  //   return <h1>Hello Home</h1>
-  // }
-
+ 
   return (
     <>
       <Navbar
@@ -49,20 +47,20 @@ function App() {
         fun={Togglefun}
         textMode={ModeText}
       ></Navbar>
-
       <Alert alert={myAlert} />
-      {/* <Textform title='A simple and free text analyze and word counter' />  */}
-
       <Routes>
-       <Route exact path='/' element={ <Textform title='A simple and free text analyze and word counter' /> }></Route>
-       <Route exact path='about' element={<About />}></Route>
-     </Routes>
-     
-
-     {/* <Routes>
-        <Route exact path="/home" component={() => <Home />}></Route>
-        <Route exact path="/about" component={<About />}></Route>
-      </Routes> */}
+        <Route
+          exact
+          path="/text-analyzer"
+          element={
+            <Textform
+              title="A simple and free text analyze and word counter"
+              textMode={ModeText}
+            />
+          }
+        ></Route>
+        <Route exact path="/about" element={<About />}></Route>
+      </Routes>
     </>
   );
 }
